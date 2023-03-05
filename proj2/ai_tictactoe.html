@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+<style>
+body
+{
+  background-color: #2f2f30;
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 5%;
+
+}
+.board
+{ 
+  height:100px;
+  width:200px;
+  overflow: hidden;
+  margin: 30px auto 30px auto;
+  position:relative;
+  margin-left: 42%;
+
+  
+}
+.button
+{
+  height:50px;
+  width:50px;
+  border-radius:14px;
+  background-color:#AFA7B6;
+  position:relative;
+  margin:5px;
+  cursor:pointer;
+  width:100%;
+  float:left;
+  transition:all ease 0.5s;
+  
+}
+.cross
+{
+  background-color:#259FC4;
+}
+.cross:after{
+  font-family: "FontAwesome";
+  content:"\f00d";
+  top:50%;
+  width:100%;
+  position:absolute;
+  font-size:45px;
+  left:0;
+  transform:translate(0%,-50%);  
+  text-shadow:2px 2px 2px rgba(0,0,0,0.2);
+  color:white;
+}
+.zero
+{
+  background-color:#ddcd17;
+}
+.zero:after{
+  font-family: "FontAwesome";
+  content:"\f10c";
+  top:50%;
+  width:100%;
+  position:absolute;
+  font-size:45px;
+  left:0;
+  transform:translate(0%,-50%);  
+  text-shadow:2px 2px 2px rgba(0,0,0,0.2);
+  color:white;
+}
+.button:hover{
+  background-color:#B83CD1;
+}
+@media (min-width: 450px) 
+ {
+    .board
+   {height:300px;
+    width:300px;
+   }
+   .button
+   {
+     height:70px;
+     width:70px;
+   }
+   .cross:after
+    {
+    font-size:35px;
+   }
+   .zero:after
+    {
+    font-size:35px;
+   }
+ }
+.container
+{
+  font-size:400%;
+}
+.col-sm-4
+{
+  color:#5C5B6B;
+  transition:all ease 0.3s;
+  cursor:pointer;
+}
+.col-sm-4:hover
+{
+  color:#FFA654;
+}
+p
+{
+  font-size:30px;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(155, 152, 147);
+}
+
+.result
+{
+  font-size:30px;
+  cursor:default;
+  color:#ec9a98;
+}
+
+</style>
+
+  
+</head>
+
+<body>
+
+    <h1 style="text-align: center; color: blanchedalmond; padding-bottom: 30px;"> <strong> <b> Tic - Tac - Toe </b> </strong></h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"> <p> Select who starts first : </p> </div>
+            <div class="col-sm-4 fa-user-circl"><p>User</p></div>
+          <div class="col-sm-4 fa fa-deskto"><p>System</p></div>
+        </div>
+      </div>
+
+
+<div class="board">
+  <div class="button" id="b1" onclick=""></div>
+  <div class="button" id="b2" onclick=""></div>
+  <div class="button" id="b3" onclick=""></div>
+  
+  <div class="button" id="b4" onclick=""></div>
+  <div class="button" id="b5" onclick=""></div>
+  <div class="button" id="b6" onclick=""></div>
+  
+  <div class="button" id="b7" onclick=""></div>
+  <div class="button" id="b8" onclick=""></div>
+  <div class="button" id="b9" onclick=""></div> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"><p></p></div>
+    <div class="col-sm-4 result">Result</div>
+    <div class="col-sm-4"><p></p></div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  
+
+    <script>
+        var board=[0,0,0,0,0,0,0,0,0];
+var firstmove=[1,3,7,9];
+var pos;
+var player,opponent,user,cpu;
+
+function play(id,index)
+{
+  $('#'+id).attr("onclick","");
+  board[index-1]=player;
+  $('#'+id).addClass(user);
+  if(check(player,board))
+    {
+     $('.result').text("You win!");
+     reset();
+     return; 
+    }
+  if(!draw())
+    {
+      $('.result').text("Draw!");
+      reset();
+      return;
+    }
+  var position=minimax(true,0);
+  $('#b'+position).attr("onclick","");
+  board[position-1]=opponent;
+  $('#b'+position).addClass(cpu);
+  if(check(opponent,board))
+    {
+     $('.result').text("I win!");
+     reset();
+     return; 
+    }
+  if(!draw())
+    {
+      $('.result').text("Draw!");
+      reset();
+      return;
+    }
+}
+function minimax(maximizing,depth)
+{
+   if(check(opponent,board))
+     {
+       return (100-depth);
+     }
+  if(check(player,board))
+    {
+      return (-100+depth);
+    }
+  if(!draw())
+     {
+       return 0;
+     }
+  if(maximizing===true)
+    {
+      var best=-100;
+      for(var i=0;i<9;i++)
+        {
+          if(board[i]===0)
+            {
+              board[i]=opponent;
+				      var value = minimax(false, depth + 1);
+              if(value>best && depth===0)
+                {
+                  pos=i+1;
+                }
+				      best = Math.max(best,value);
+              board[i]=0;
+            }
+        }
+      if(depth===0)
+        {
+          return pos;
+        }
+      return best;
+    }
+  if(maximizing===false)
+    {
+      var b=100;
+      for(var i=0;i<9;i++)
+        {
+          if(board[i]===0)
+            {
+              board[i]=player;
+				      var v = minimax(true, depth + 1);
+				      b = Math.min(b,v);
+              board[i]=0;
+            }
+        }
+      return b;
+    }
+}
+function draw()
+{
+  var r=0;
+  for(var i=0;i<9;i++)
+    {
+      if(board[i]===0)r++;
+    }
+  return r;
+}
+function check(p,array)
+{
+  for(var i=0;i<3;i++)
+    {
+      if(array[i]===p && array[i+3]===p && array[i+6]===p){return true;} 
+    }
+  if((array[0]===p && array[4]===p && array[8]===p) || (array[2]===p && array[4]===p && array[6]===p)){return true;}
+  for(i=0;i<=6;i+=3)
+    {
+      if(array[i]===p && array[i+1]===p && array[i+2]===p){return true;} 
+    }
+  return false;
+}
+function reset()
+{
+  for(var i=1;i<=9;i++)
+  {
+    $('#b'+i).attr("onclick","");
+  }
+}
+$(".fa-user-circl").click(function()
+                          {
+  $('.result').text("Result");
+  for(var i=1;i<=9;i++)
+    {
+      board[i-1]=0;
+      $('#b'+i).attr("onclick","play(this.id,"+i+")");
+      $('#b'+i).removeClass('cross');
+      $('#b'+i).removeClass('zero');
+    }
+  player='X';opponent='O';
+  user="cross";cpu="zero";
+});
+$(".fa-deskto").click(function()
+                          {
+  $('.result').text("Result");
+  for(var i=1;i<=9;i++)
+    {
+      board[i-1]=0;
+      $('#b'+i).attr("onclick","play(this.id,"+i+")");
+      $('#b'+i).removeClass('cross');
+      $('#b'+i).removeClass('zero');
+    }
+  player='O';opponent='X';
+  user="zero";cpu="cross";
+  var f=Math.floor(Math.random() * 4);
+  var k=firstmove[f];
+  $('#b'+k).attr("onclick","");
+  board[k-1]=opponent;
+  $('#b'+k).addClass(cpu);
+});
+
+    </script>
+
+
+
+
+</body>
+
+</html>
