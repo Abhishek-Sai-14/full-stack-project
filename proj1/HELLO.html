@@ -1,0 +1,843 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="mystyle.css" type="text/css">
+</head>
+
+<style>
+    .image-container {
+  position: relative;
+}
+
+img {
+			max-width: 100%;
+			-webkit-filter: saturate(1); /* Set initial saturation to 100% */
+			filter: saturate(1);
+			transition: filter 0.5s ease-in-out; /* Add transition for smooth effect */
+		}
+
+
+.image-options {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+
+.image-options button {
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: none;
+}
+
+.transparent {
+  opacity: 0.5;
+}
+
+button{
+  width: 75px;
+  height: auto;
+  font-size: 10px;
+  margin-bottom: 1px;
+}
+
+
+
+    
+
+</style>
+
+<body>
+
+  <h1 style="text-align: center; color: rgb(102, 180, 215);"> India ... India .. </h1>
+
+    <div id="carouselExampleCaptions" class="carousel slide" style="width: 500px; margin: auto ; max-width: 100%; padding-top: 20px; padding-bottom: 20px;">
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/odicup.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3 style="color:rgb(15, 229, 233)">   </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/t20.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <p style="color:black">  </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/cpn.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <p style="color:black"> </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <h3 style="text-align: center; color: rgb(201, 174, 40); padding-bottom: 20px;"> Hover on Images to Explore More</h3>
+
+    <div class="row">
+        <div class="column">
+            <div class="bg-image hover-zoom">
+                <div class="container">
+                    <div class="image-container">
+                    <img id="im1" src="images/ROHIT.jpg" class="image">
+                    <div class="image-options">
+                      
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="image-container">
+                    <img id="im2" src="images/gill.jpg" class="image">
+                    <div class="image-options">
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="image-container">
+                    <img src="images/ashwin.jpg" id="im3" class="image">
+                    <div class="image-options">         
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="image-container">
+                    <img src="images/bhuvi.jpg"  class="image">
+                    <div class="image-options">         
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="bg-image hover-zoom">
+                <div class="image-container">
+                <div class="container">
+                    <img src="images/axar.jpg"  class="image">
+                    <div class="image-options">               
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/bumrah.jpg"  class="image">
+                    <div class="image-options">          
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/kl.jpg"  class="image">
+                    <div class="image-options">              
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/pant.jpg"  class="image">
+                    <div class="image-options">       
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                      <button onclick="invertimg()">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="bg-image hover-zoom">
+                <div class="image-container">
+                <div class="container">
+                    <img src="images/MSD.JPG"  class="image">
+                    <div class="image-options">       
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/hardik.jpg"  class="image">
+                    <div class="image-options">            
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/jaddu.jpg"  class="image">
+                    <div class="image-options">        
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/kuldeep.jpg"  class="image">
+                    <div class="image-options">          
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/sachin.jpg"  class="image">
+                    <div class="image-options">      
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="bg-image hover-zoom">
+                <div class="image-container">
+                <div class="container">
+                    <img src="images/VIRAT.JPG"  class="image">
+                    <div class="image-options">      
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                </div>
+                </div>
+                <div class="image-container">
+                <div class="container">
+                    <img src="images/surya.jpg"  class="image">
+                    <div class="image-options">                 
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-container">
+                  <div class="container">
+                    <img src="images/shami.jpg"  class="image">
+                        <div class="image-options">            
+                          <button class="increase-brightness">Increase Brightness</button>
+                          <button class="convert-to-grey">Convert to Grayscale</button>
+                            <button onclick="checkColor()">Check Color</button>
+                            <button class="reddish-button">Reddish</button>
+                            <button class="blueish-button">Blueish</button>
+                            <button class="greenish-button">Greenish</button>
+                            <button class="reduce-resolution-button">Reduce Resolution</button>
+                          <button class="duplicate-image">Duplicate Image</button>
+                            <button class="increase-saturation">Increase Saturation</button>
+                            <button class="increase-contrast">Increase Contrast</button>
+                            <button class="sharp-en">Increase Sharpness</button>
+                            <button class="drop-shad">Drop Shadow</button>
+                            <button class="blur-img">Blur</button>
+                            <button class="hue-img">Rotate hue</button>
+                            <button class="sepia-img">Sepia</button>
+                            <button class="invert-img">Invert color</button>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+                <div class="container">
+                    <div class="image-container">
+                    <img src="images/siraj.jpg"  class="image">
+                    <div class="image-options">              
+                      <button class="increase-brightness">Increase Brightness</button>
+                      <button class="convert-to-grey">Convert to Grayscale</button>
+                        <button onclick="checkColor()">Check Color</button>
+                        <button class="reddish-button">Reddish</button>
+                        <button class="blueish-button">Blueish</button>
+                        <button class="greenish-button">Greenish</button>
+                        <button class="reduce-resolution-button">Reduce Resolution</button>
+                      <button class="duplicate-image">Duplicate Image</button>
+                        <button class="increase-saturation">Increase Saturation</button>
+                        <button class="increase-contrast">Increase Contrast</button>
+                        <button class="sharp-en">Increase Sharpness</button>
+                        <button class="drop-shad">Drop Shadow</button>
+                        <button class="blur-img">Blur</button>
+                        <button class="hue-img">Rotate hue</button>
+                        <button class="sepia-img">Sepia</button>
+                        <button class="invert-img">Invert color</button>
+                    </div>
+                    
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="image-container">
+                        <img src="images/ashish.jpg"  class="image">
+                        <div class="image-options">           
+                          <button class="increase-brightness">Increase Brightness</button>
+                          <button class="convert-to-grey">Convert to Grayscale</button>
+                            <button onclick="checkColor()">Check Color</button>
+                            <button class="reddish-button">Reddish</button>
+                            <button class="blueish-button">Blueish</button>
+                            <button class="greenish-button">Greenish</button>
+                            <button class="reduce-resolution-button">Reduce Resolution</button>
+                          <button class="duplicate-image">Duplicate Image</button>
+                            <button class="increase-saturation">Increase Saturation</button>
+                            <button class="increase-contrast">Increase Contrast</button>
+                            <button class="sharp-en">Increase Sharpness</button>
+                            <button class="drop-shad">Drop Shadow</button>
+                            <button class="blur-img">Blur</button>
+                            <button class="hue-img">Rotate hue</button>
+                            <button class="sepia-img">Sepia</button>
+                            <button class="invert-img">Invert color</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    </body>
+
+<script>
+  const images = document.querySelectorAll('.image-container');
+
+
+
+
+for (const image of images) {
+  const img = image.querySelector('img');
+  const optionsContainer = image.querySelector('.image-options');
+  
+  const increaseBrightnessButton = optionsContainer.querySelector('.increase-brightness');
+  
+  const duplicateImageButton = optionsContainer.querySelector('.duplicate-image');
+  var timer;
+
+
+  img.addEventListener('mouseover', function() {
+  img.classList.add('transparent');
+  optionsContainer.style.display = 'block';
+  setTimeout(function() {
+    img.classList.remove('transparent');
+    optionsContainer.style.display = 'none';
+  }, 1000);
+});
+
+if(increaseBrightnessButton!=null){
+
+increaseBrightnessButton.addEventListener('click', () => {
+    img.style.filter = 'brightness(150%)';
+  });
+}
+
+
+if(duplicateImageButton!=null){
+duplicateImageButton.addEventListener('click', () => {
+    const newImageContainer = document.createElement('div');
+    newImageContainer.classList.add('image-container');
+
+
+    const newImage = img.cloneNode(true);
+    newImageContainer.appendChild(newImage);
+
+    const newOptionsContainer = optionsContainer.cloneNode(true);
+    newImageContainer.appendChild(newOptionsContainer);
+
+    image.parentElement.insertBefore(newImageContainer, image.nextSibling);
+  });
+}
+
+function checkColor() {
+  var canvas = document.createElement("canvas");
+  var ctx = canvas.getContext("2d");
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var data = imageData.data;
+  var redCount = 0;
+  var greenCount = 0;
+  var blueCount = 0;
+  for (var i = 0; i < data.length; i += 4) {
+    var red = data[i];
+    var green = data[i + 1];
+    var blue = data[i + 2];
+    if (red > green + blue) {
+      redCount++;
+    } else if (green > red + blue) {
+      greenCount++;
+    } else if (blue > red + green) {
+      blueCount++;
+    }
+  }
+  var totalCount = redCount + greenCount + blueCount;
+  var redPercentage = Math.round((redCount / totalCount) * 100);
+  var greenPercentage = Math.round((greenCount / totalCount) * 100);
+  var bluePercentage = Math.round((blueCount / totalCount) * 100);
+  var result;
+  if (redPercentage > 50) {
+    result = "reddish";
+  } else if (bluePercentage > 50) {
+    result = "blueish";
+  } else if (greenPercentage > 50) {
+    result = "greenish";
+  } else {
+    result = "not clearly reddish, blueish or greenish";
+  }
+  alert("The image is " + result + ".");
+}
+
+
+const reddishButton = optionsContainer.querySelector('.reddish-button');
+var blueishButton = optionsContainer.querySelector('.blueish-button');
+var greenishButton = optionsContainer.querySelector('.greenish-button');
+
+
+if(reddishButton!=null){
+reddishButton.addEventListener('click', () => {
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var data = imageData.data;
+  
+  for (var i = 0; i < data.length; i += 4) {
+    var r = data[i];
+    var g = data[i + 1];
+    var b = data[i + 2];
+    if (r <= g + b) {
+      data[i] = g + b;
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+  img.src = canvas.toDataURL();
+});
+}
+
+if(blueishButton!=null){
+blueishButton.addEventListener('click',() => {
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = img.width;
+  canvas.height = img.height;
+  console.log("clcik")
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var data = imageData.data;
+  for (var i = 0; i < data.length; i += 4) {
+    var r = data[i];
+    var g = data[i + 1];
+    var b = data[i + 2];
+    if (b <= r + g) {
+      data[i + 2] = r + g;
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+  img.src = canvas.toDataURL();
+});
+}
+
+if(greenishButton!=null){
+
+greenishButton.addEventListener('click', function() {
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var data = imageData.data;
+  for (var i = 0; i < data.length; i += 4) {
+    var r = data[i];
+    var g = data[i + 1];
+    var b = data[i + 2];
+    if (g <= r + b) {
+      data[i + 1] = r + b;
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
+  img.src = canvas.toDataURL();
+});
+}
+
+
+const h = optionsContainer.querySelector(".reduce-resolution-button");
+
+if(h!=null){
+h.addEventListener("click", reduceResolution);
+
+function reduceResolution() {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  const scaleFactor = 0.4; // Change this value to adjust the reduction in resolution
+  canvas.width = img.width * scaleFactor;
+  canvas.height = img.height * scaleFactor;
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const newImage = new Image();
+  img.src = canvas.toDataURL();
+
+}
+}
+
+const h1=optionsContainer.querySelector(".convert-to-grey");
+
+if(h1!=null){
+  
+h1.addEventListener("click", convertToGrayscale);
+
+function convertToGrayscale() {
+
+img.style.filter='grayscale(100%)';
+
+}
+}
+
+
+const h2=optionsContainer.querySelector(".increase-saturation")
+
+if(h2!=null){
+  h2.addEventListener("click",increaseSaturation);
+
+  function increaseSaturation() {
+	img.style.filter = 'saturate(150%)'; 
+}
+
+}
+
+
+const h3=optionsContainer.querySelector(".increase-contrast")
+if(h3!=null){
+  h3.addEventListener("click",increaseContrast);
+  function increaseContrast() {
+	img.style.filter = 'contrast(150%)'; 
+}
+
+}
+
+const h6=optionsContainer.querySelector("sharp-en")
+if(h6!=null){
+  h6.addEventListener("click",sharpen);
+  function sharpen() {
+			img.style.filter = 'contrast(125%) brightness(115%) saturate(110%) blur(0px)'; 
+		}
+}
+
+
+
+
+  
+
+const h4=optionsContainer.querySelector(".drop-shad")
+if(h4!=null){
+  h4.addEventListener("click",dropshad);
+
+function dropshad(){
+  img.style.filter='drop-shadow(0 0 0.75rem crimson)';
+}
+}
+
+const h5=optionsContainer.querySelector(".invert-img")
+if(h5!=null){
+  h5.addEventListener("click",invertimg);
+
+function invertimg(){
+  img.style.filter='invert(1)'
+}
+}
+
+const h7=optionsContainer.querySelector(".blur-img")
+if(h7!=null){
+  h7.addEventListener("click",blurimg);
+
+function blurimg(){
+  img.style.filter = 'blur(4px)';
+  
+}
+}
+
+const h8=optionsContainer.querySelector(".sepia-img")
+if(h8!=null){
+  h8.addEventListener("click",sepiaimg);
+
+function sepiaimg(){
+  img.style.filter='sepia(1)'
+}
+}
+
+const h9=optionsContainer.querySelector(".hue-img")
+if(h9!=null){
+  h9.addEventListener("click",hueimg);
+
+function hueimg(){
+  img.style.filter='hue-rotate(90deg)'
+}
+}
+
+
+
+
+
+
+
+
+
+
+}
+
+console.log('JavaScript code loaded successfully.');
+
+
+
+</script>
+
+</html>
+
+  
